@@ -14,10 +14,7 @@ session_start();
 <form action="actions/registration.php" method="POST">
     <div class="input-field">
         <label for="">First name</label>
-        <input type="text" class="input-field" name="first_name" value="<?php
-        if(isset($_SESSION['firstname'])) {
-            echo $_SESSION['firstname'];
-        }?>">
+        <input type="text" class="input-field" name="first_name">
     </div>
     <div class="error">
         <?php
@@ -89,6 +86,16 @@ session_start();
     </div>
     <div class="input-field">
         <button type="submit" name="submit">Register</button>
+    </div>
+    <div class="confirmation">
+        <?php
+        if(isset($_SESSION['message'])){
+            ?>
+        <p><?php echo $_SESSION['message'];
+        unset($_SESSION['message'])?></p>
+        <?php
+        }
+        ?>
     </div>
 </form>
 </body>
