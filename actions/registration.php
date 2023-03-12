@@ -30,18 +30,13 @@ if(!empty($errors)){
     if($connection->query($query)){
         $_SESSION['token'] = hash('sha256', uniqid());
 
-        $message = sprintf("Hi %s, Please confirm registration http://localhost:8000/confirm.php?%s", $username, http_build_query([
+        $message = sprintf("Hi %s, Please confirm registration https://phpsmn.000webhostapp.com/actions/confirm.php?%s", $username, http_build_query([
             'token' => $_SESSION['token'],
             'email' => $email
         ]));
         $headers = "From: zivojin.2001davidovic@gmail.com";
-        if(mail($email, 'User Registration Confirmation', $message, $headers)){
-           $_SESSION['message'] = 'You registered successfully. Please check your email in order to confirm your account.';
-           header('location: ../register.php');
-        }else{
-            echo "Mail nije poslat";
-        }
+        mail($email, 'User Registration Confirmation', $message, $headers);
+        $_SESSION['message'] = 'You registered successfully. Please check your email in order to confirm your account.';
+        header('location: ../register.php');
     }
-
-
 }
