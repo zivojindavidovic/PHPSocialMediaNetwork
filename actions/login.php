@@ -4,7 +4,6 @@ require_once ('database.php');
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-$sifra = "Odlicanucenik5";
 
 $sql = "SELECT * FROM users WHERE email = '$email'";
 $stmt = $connection->prepare($sql);
