@@ -22,12 +22,14 @@ if(!empty($errors)){
     $lastname = $_POST['last_name'];
     $email = $_POST['email'];
     $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $password = $_POST['password'];
     $accountActive = 0;
 
-    $query = "INSERT INTO users (firstname, lastname, email, username, password, active) VALUES('$firstname', '$lastname', '$email', '$username', '$password', '$accountActive')";
+    $password = password_hash($password, PASSWORD_BCRYPT);
 
-    if($connection->query($query)){
+    $query = "INSERT INTO users (firstname, lastname, email, username, password, active) VALUES('$firstname', '$lastname', '$email', '$username', '$password', '$accountActive')";
+    $stmt = $connection->prepare($query);
+    if($stmt->execute()){
         $_SESSION['token'] = hash('sha256', uniqid());
 
         $message = sprintf("Hi %s, Please confirm registration https://phpsmn.000webhostapp.com/actions/confirm.php?%s", $username, http_build_query([
