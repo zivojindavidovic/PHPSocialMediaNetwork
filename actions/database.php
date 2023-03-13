@@ -1,8 +1,12 @@
 <?php
 
+session_start();
+
+//host database
 $servername = "localhost";
 $username = "id20438030_root";
 $password = "j5Xb%t&3F0*qAuHa";
+//localhost database
 $username1 = "root";
 $password1 = "";
 $dbname = "id20438030_phpsmn";

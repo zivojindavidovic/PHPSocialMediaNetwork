@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
+    header("location: welcome.php");
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -8,10 +11,13 @@ session_start();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Registration</title>
 </head>
-<body>
-<form action="actions/registration.php" method="POST">
+<body class="login-body">
+<form action="actions/registration.php" method="POST" class="register-form">
+    <h5>Registration</h5>
     <div class="input-field">
         <label for="">First name</label>
         <input type="text" class="input-field" name="first_name">
@@ -97,6 +103,7 @@ session_start();
         }
         ?>
     </div>
+    <p>Already have an account? Register <a>here</a></p>
 </form>
 </body>
 </html>

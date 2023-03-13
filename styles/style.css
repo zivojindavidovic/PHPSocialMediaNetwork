@@ -1,0 +1,67 @@
+.login-body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/background2.jpg");
+    background-size: cover;
+}
+
+.login-body form{
+    //background-color: lightcoral;
+}
+
+.login-body form h5{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.login-body form label{
+    color: white;
+    font-size: small;
+}
+
+.login-body form .input-field{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.login-body form .input-field input{
+    width: 200px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.login-body form .input-field button{
+    width: 100%;
+    display: block;
+    margin: auto;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #04040c;
+    color: white;
+}
+
+.login-body form p{
+    color: white;
+}
+
+.login-body form p a{
+    color: red;
+    text-decoration: none;
+}
+
+.register-form{
+    width: 310px;
+}
+
+.error{
+    color: red;
+    margin-bottom: 5px;
+}
